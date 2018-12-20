@@ -1,0 +1,343 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100vw;	/* 100% of viewport width */
+	height: 100vh;	/* 100% of viewport height */
+}
+
+/* Modal styles */
+#screen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 2;
+    display: none;
+}
+
+.modal {
+    display: none;
+    width: 50vw;
+    height: 45vh;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 3;
+    padding: 15px 30px;
+    font-family: DINPro Regular;
+    border-radius:10px;
+    text-align: justify; 
+}
+}
+
+.modal>.modal-title {
+    
+}
+
+.modal>.modal-body{
+   
+}
+
+.modal>.close-button {
+    color: #cccccc;
+    position:absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    background: none !important;
+    border: none !important;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal>.close-button:hover {
+    color: #bbbbbb !important;
+}
+
+.button-default {
+    color: #66803b;
+    background-color: white;
+    font-family: DINPro;
+    cursor: pointer;
+    margin: 100px 20px;
+    border: none;
+    z-index: 2;
+    -webkit-transition: 0.3s all ease;
+    transition: 0.3s ease all;
+    width: 200px;
+}
+
+.button-default:hover {
+    color: white;
+    background-color: #66803b;
+}
+.button-default:focus {
+    color: white;
+    background-color: #66803b;
+}
+
+.button-default:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #66803b;
+  z-index: -1;
+}
+
+.button-default:hover:before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.button-default:focus:before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+#about {
+    position: absolute;
+    left: 5px;
+    top: 0;
+   align-items: center;
+   justify-content: center;
+}
+
+.map-overlay {
+    position: absolute;
+    background: white;
+    margin: 20px;
+    font-family: DINPro Light;
+    font-size: 14px;
+    padding: 15px;
+    z-index: 1;
+}
+
+#legend {
+    left: 3.5px;
+    bottom: 80px;
+}
+
+.legend-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+#layers-control {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    left: 5px;
+    margin: 20px;
+    width: 180px;
+    font-family: DINPro Light;
+    background-color: white;
+    padding: 3px 10px;
+}
+
+.control-title{
+    font-size: 12px;
+    color: #66803b;
+    margin: 10 45 10px 40;
+    text-decoration: none;
+}
+
+#layers-control a {
+    font-size: 13px;
+    color: white;
+    display: block;
+    margin: 0 0 6px 0;
+    padding: 0;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    text-align: center;
+    background-color: #ccc;
+    font-family: DINPro Light;
+    border-radius: 5px;
+}
+
+#layers-control a:last-child {
+    border: none;
+}
+
+#layers-control a:hover {
+    background-color: #66803b;
+}
+
+#layers-control a.active {
+    background-color: #91b553;
+    color: #ffffff;
+}
+
+#layers-control a.active:hover {
+    background: #66803b;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: white; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    background:rgba(0,0,0,.2)
+}
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 25px;
+    margin-left: 60px;
+    color: white;
+    z-index: 3;
+}
+
+
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin: 6px 10px;
+}
+
+#bars {
+    z-index: 3;
+    position: absolute;
+}
+
+.mapboxgl-popup-content {
+    font-family: DINPro Light;
+    background-color: white;
+    padding: 12px;
+    width: 20vw;
+    text-align: justify; 
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: white;
+}
+
+#info-window {
+    left: 15px;
+    top: 10px;
+    width: 15vw;
+    height: 20vh; 
+    line-height: 18px;
+    color: #66803b;
+    font-family: DINPro Light;
+}
+
+.map-overlay1 {
+    position: absolute;
+    font-family: DINPro;
+    padding: 15px;
+    z-index: 1;
+    text-align: center;
+}
+
+.park-image {
+    align-items: center;
+    width: 300px;
+}
+
+.title2 {
+    color: white;
+    position: absolute;
+    top: 10px;
+    padding: 3px 5px;
+    font-family: DINPro;
+    margin: 5px 20px;
+    border: none;
+    font-size: 15px;
+    z-index: 2;
+    width: 200px;
+    text-align: center;
+}
+
+
+  /* Slider */
+    #slidercontainer {
+        bottom: 30px;
+        right: 5px;
+        position: fixed;
+        width: 33%;
+        font-family: 'DINPro Light';
+    }
+
+    .slider-title{
+        color:#3090a1;
+        position: relative;
+        left: 252;
+        font-size: 13px;
+    }
+
+    #slidercontainer h4 { margin: 0 0 0 10px; }
+    
+    .slider {
+        -webkit-appearance: none;
+        width: 480px;
+        height: 20px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        background: #3090a1;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #3090a1;
+        cursor: pointer;
+    }
+
+    #timeline-labels .domain, #timeline-labels .tick>line { display: none; }
+    #timeline-labels text { 
+        padding: 2px;
+        fill: #3090a1; 
+        font-family: 'DINPro',
+    }

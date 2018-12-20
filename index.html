@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>My Mapbox GL JS Map</title>
+
+    <!-- Link to d3 -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- Link to JQuery library (used for modal) -->  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <!-- Link to Mapbox GL JS library --> 
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+
+  <!-- Link to Mapbox GL JS css stylesheet -->  
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!-- Link to our custom stylesheet -->  
+  <link rel="stylesheet" href="map-floating.css">
+
+</head>
+
+<body>
+
+ <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <div class="title2">
+    <p>CHARLOTTESVILLE</p> <p>GREEN INFRESTRUCTURE</p>
+  </div>
+   <!-- About this map button -->
+  <button id="about" class='button-default'><p>ABOUT</p></button>
+
+  <!-- Map legend (populated by javascript code) -->
+  <div class='map-overlay' id='legend'></div>
+
+    <!-- Layers control (populated by javascript code) -->
+  <div id= 'layers-control'>
+   <div>
+     <h2 class='control-title'>LAYER CONTROL</h2>  
+   </div>
+  </div>
+ </div>
+
+ <span onclick="openNav()">
+  <div id= 'bars'>
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  </div>
+ </span>
+
+<!-- The map will be added to this div by javascript --> 
+  <div id="map"></div>
+  <!-- A modal, hidden by default in our css, which provides info about this project when shown -->
+  <div class='modal'>
+    
+    <h2 class='modal-title'>About this map</h2>
+
+    <div>
+      <img src="img/stepped+pondshand.jpg" alt="stepped+ponds_hand" style="float:right;width:300px;height:200px;padding:0px 8px;">
+    </div>
+    <div class='modal-body'><p>This is the map showing the information of green infrestructure in Charlottesville, such as material waste management point, solar energy systrms, parks and wetlands. This map aims to help people have a general idea about the composition, location and functions of green infrestructure in this city, and encourages sustainable options for green life.</a></p>
+      <p>By Huiru SHEN</p>
+      <p>UVA F18 LAR7415 Scripting Civic Engagement</p>
+      <p>Instructor: Andrea Hansen Phillips</p></div>
+    
+    <button class='close-button'>&times;</button>  <!-- A special "x" character (the multiply sign) used in close buttons -->  
+  </div>
+  <div id="screen"></div> <!-- Black overlay behind the modal -->
+
+  <!-- Time slider -->   
+  <div id="slidercontainer">
+      <h4 class='slider-title'>SOLAR STRUCTURE CAPABILITY(/kw)</h4>
+      <input type="range" min="0" max="112" value="0" class="slider" id="timeslider">
+      <div id="timeline-labels"></div> <!-- populated by d3 -->
+  </div>
+
+</body>
+<!-- Link to our custom javascript, must be placed at the end of the index.html file -->  
+<script src="map.js"></script>
+</html>
+
+
+<!--  div class='map-overlay1' id='info-window'>
+    <div>
+      <h3>Charlottesville</h3> <h3>City Green Map</h3>
+      <div id='info-window-body'>
+        <p>click on a circle or fill to learn more about it.</p>
+      </div>
+    </div>
+  </div> -->
